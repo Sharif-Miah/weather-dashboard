@@ -71,7 +71,6 @@ const useWeather = () => {
   };
 
   const { selectedLocation } = useContext(LocationContext);
-  console.log(selectedLocation);
 
   useEffect(() => {
     setLoading({

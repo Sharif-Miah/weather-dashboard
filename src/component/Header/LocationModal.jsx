@@ -1,8 +1,9 @@
 import { useContext } from "react";
-import { FavoritContext } from "../../context";
+import { FavoritContext, LocationContext } from "../../context";
 
 const LocationModal = () => {
   const { favorites } = useContext(FavoritContext);
+  const { setSelectedLocation } = useContext(LocationContext);
 
   return (
     <div className="max-w-xs py-4 bg-white rounded-md border-gray-500 absolute right-0 top-16 text-black shadow-lg ">
@@ -12,7 +13,9 @@ const LocationModal = () => {
           <>
             {favorites.map((fav) => (
               <li key={fav.location} className="hover:bg-gray-200">
-                {fav.location}
+                <a onClick={() => setSelectedLocation({ ...fav })}>
+                  {fav.location}
+                </a>
               </li>
             ))}
           </>
